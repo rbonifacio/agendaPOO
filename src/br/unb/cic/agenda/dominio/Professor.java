@@ -22,8 +22,4 @@ public class Professor extends Pessoa {
 	public String getEndereco() {
 		return endereco;
 	}
-	
-	
-	
-	
 }
