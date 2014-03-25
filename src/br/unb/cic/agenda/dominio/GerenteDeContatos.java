@@ -12,6 +12,7 @@ import br.unb.cic.agenda.integracao.IAgendaDB;
 public class GerenteDeContatos {
 
 	private IAgendaDB db; 
+	
 	public GerenteDeContatos() {
 		db = Fabrica.instanciar();
 	}

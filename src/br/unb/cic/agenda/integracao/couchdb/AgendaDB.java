@@ -72,7 +72,10 @@ public class AgendaDB implements IAgendaDB {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		map.put("_id", id);
+		if(id != null) {
+			map.put("_id", id);
+		}
+		
 		map.put("nome", contato.getNome());
 		map.put("email", contato.getEmail());
 		
@@ -117,6 +120,11 @@ public class AgendaDB implements IAgendaDB {
 	 * identificador passado como argumento. 
 	 */
 	public Pessoa pesquisaPorId(String id) {
+		
+		if(id == null) {
+			return null;
+		}
+		
 		JsonObject json = null;
 		
 		try {
@@ -149,7 +157,7 @@ public class AgendaDB implements IAgendaDB {
 		//fromJSON na hierarquia de contatos... ou algo 
 		//parecido.
 		
-		if(json.get("docType") == null || (!json.get("docType").equals("contato"))) {
+		if(json.get("docType") == null || (!json.get("docType").getAsString().equals("contato"))) {
 			return null;
 		}
 		
