@@ -1,5 +1,8 @@
 package br.unb.cic.agenda.dominio;
 
+import br.unb.cic.agenda.integracao.Fabrica;
+import br.unb.cic.agenda.integracao.IAgendaDB;
+
 /**
  * Classe responsavel por gerenciar contatos
  * em uma agenda simples de enderecos. 
@@ -8,42 +11,20 @@ package br.unb.cic.agenda.dominio;
  */
 public class GerenteDeContatos {
 
-	private static final int MAX = 10;
-	private int numeroContatos; 
-	
-	private Pessoa contatos[];
-	
+	private IAgendaDB db; 
 	public GerenteDeContatos() {
-		numeroContatos = 0;
-		contatos = new Pessoa[MAX];	
+		db = Fabrica.instanciar();
 	}
 	
 	public void incluirContato(Pessoa pessoa) throws Exception {
-		if(numeroContatos < MAX) {
-			contatos[numeroContatos++] = pessoa;
-		}
-		else {
-			throw new Exception("Numero maximo de contatos permitido");
-		}
+		db.incluirContato(pessoa);
 	}
 	
-	public Pessoa pesquisarContato(String nome) {
-//		for(int i = 0; i < numeroContatos; i++) {
-//			if(nome.equals(contatos[i].getNome())) {
-//				return contatos[i];
-//			}
-//		}
-		
-		for(Pessoa p : contatos) {
-			if(p != null && nome.equals(p.getNome())) {
-				return p;
-			}
-		}
-		
-		return null;
+	public Pessoa pesquisarContato(String nome) throws Exception {
+		return db.pesquisaPorNome(nome);
 	}
 	
-	public int quantidadeDeContatos() {
-		return numeroContatos;
+	public int quantidadeDeContatos() throws Exception {
+		return db.quantidadeDeContatos();
 	}
 }

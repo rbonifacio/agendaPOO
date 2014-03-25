@@ -22,4 +22,14 @@ public class Professor extends Pessoa {
 	public String getEndereco() {
 		return endereco;
 	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	
 }

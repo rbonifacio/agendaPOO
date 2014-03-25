@@ -80,16 +80,22 @@ public class Agenda {
 		System.out.println("Informe o nome do contato: ");
 		String nome = sc.next();
 		
-		Pessoa pessoa = gc.pesquisarContato(nome);
-		if(pessoa == null){
-			System.out.println("Pessoa nao encontrada.");
+		try {
+			Pessoa pessoa = gc.pesquisarContato(nome);
+		
+			if(pessoa == null){
+				System.out.println("Pessoa nao encontrada.");
+			}
+			else {
+				System.out.println("Nome: " + pessoa.getNome());
+				System.out.println("email:" + pessoa.getEmail());
+			}
+			System.out.println("Pressione uma tecla para retornar");
+			sc.nextLine();
+			menuPrincipal();
+		}catch(Exception e) {
+			System.out.println("Erro na pesquisa pelo contato " + e.getMessage()); 
+			System.exit(1);
 		}
-		else {
-			System.out.println("Nome: " + pessoa.getNome());
-			System.out.println("email:" + pessoa.getEmail());
-		}
-		System.out.println("Pressione uma tecla para retornar");
-		sc.nextLine();
-		menuPrincipal();
 	}
 }

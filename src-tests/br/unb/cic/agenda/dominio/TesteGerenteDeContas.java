@@ -14,11 +14,12 @@ public class TesteGerenteDeContas {
 
 		Assert.assertNotNull(gc);
 
-		Pessoa p = gc.pesquisarContato("n1");
-		
-		Assert.assertNull(p);
 		
 		try {
+			Pessoa p = gc.pesquisarContato("n1");
+			
+			Assert.assertNull(p);
+			
 			gc.incluirContato(p1);
 			gc.incluirContato(p2);
 			p = gc.pesquisarContato("n1");
