@@ -16,7 +16,7 @@ public class AgendaDB implements IAgendaDB {
 	 * construtor privado de acordo com o padrao 
 	 * de projeto singleton. 
 	 */
-	private AgendaDB() { 
+	public AgendaDB() { 
 		numeroContatos = 0;
 		contatos = new Pessoa[MAX];	
 	}

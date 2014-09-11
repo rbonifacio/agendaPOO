@@ -14,7 +14,7 @@ public class GerenteDeContatos {
 	private IAgendaDB db; 
 	
 	public GerenteDeContatos() {
-		db = Fabrica.instanciar();
+		db =  Fabrica.instanciar();
 	}
 	
 	public void incluirContato(Pessoa pessoa) throws Exception {

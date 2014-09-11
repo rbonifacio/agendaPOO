@@ -50,7 +50,7 @@ public class Agenda {
 		case 4: 
 			System.out.println("Bye... \n \n"); 
 			System.exit(0);
-			break;
+			//break;
 		
 		default: 
 			System.out.println("\n \nOpcao invalida! Tente novamente. \n"); 
@@ -60,7 +60,7 @@ public class Agenda {
 	}
 
 	private void menuIncluirPessoa() {
-		System.out.println("Inform o nome: ");
+		System.out.println("Informe o nome: ");
 		String nome = sc.next();
 		System.out.println("Informe o email: ");
 		String email = sc.next();

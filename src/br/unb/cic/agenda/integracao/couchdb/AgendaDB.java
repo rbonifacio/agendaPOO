@@ -33,7 +33,7 @@ public class AgendaDB implements IAgendaDB {
 	 * Construtor privado de acordo com o padrao de projeto 
 	 * singleton. 
 	 */
-	private AgendaDB(String db) { 
+	public AgendaDB(String db) { 
 		dbCliente = new CouchDbClient(db, true, "http", "127.0.0.1", 5984, "", "");
 	}
 	
